@@ -1,0 +1,422 @@
+<head> 
+		<title>Coursework 1 Template v1.0</title>
+		
+		<style>
+			/* 
+				Notes on styling.
+				if you are interested in knowing or using more CSS search "HTML CSS" online; please note - this is a programming challenge, and although a good aesthetic is helpful there are almost no marks for spending time playing with CSS 
+			*/
+
+            body { 
+            	/* 
+            		this css selector (body) tells the browser that this style block applies to ALL <body> elements on this page; just because there is only 1 <body> doesnt make any difference 
+            	*/
+                background-color: #c0c0c0; /* this css property sets the background colour of the entire body of the web page */
+                /* 
+                	the colour: #c0c0c0 uses the format RRGGBB (RR=c0, GG=c0, BB=c0), anytime all the three channels (RGB) is all the same the resulting colour is a shade of grey. Each channel can be 0 to 255 (or in HEX: 00 to FF)
+                */
+            }
+
+
+            #cw1MainContainer { 
+            	/* 
+            		this css selector ("#" followed by "cw1MainContainer") tells the browser that this style block applies to ONLY the element with the id="cw1MainContainer" - the # tells the browser to match IDs
+            	*/
+                position: absolute; /* this css property tells the browser that the selected element (in this case id="cw1MainContainer") will be specifically told where to be displayed using LEFT and TOP (for x and y). 0, 0 being the top left and corner */
+                left: 20px; /* this css property defines/sets the left position for the selected element; in essence, how far from the left edge it should be placed */
+                top: 20px; /* this css property defines/sets the top position for the selected element; in essence, how far from the top edge it should be placed */
+            }
+            
+
+			canvas { 
+				/* 
+					this css selector (canvas) tells the browser that this style block applies to ALL <canvas> elements on this page; just because there is only 1 doesnt make any difference 
+				*/
+                background-color: #fafafa; /* this css property defines/sets the background colour of the selected element (in this case <canvas>) */
+                border: 1px solid #a0a0a0; /* this css property defines/sets the border of the selected element (in this case <canvas>) */
+				cursor: crosshair; /* this css property defines/sets the shape and type of the mouse pointer when over this element */
+			}
+			
+
+			#cw1ColoursContainer {
+				position: relative; /* this css property tells the browser that the selected element (in this case id="cw1ColoursContainer") will be specifically told where to be displayed using LEFT and TOP (for x and y). 0, 0 being the last position of the previous element (rather than the top left corner) */
+			}
+			
+
+			#cw1ControlsContainer {
+				position: relative;
+				top: 60px; /* this css property tells the browser to move down 60px; because we are positioned 'relatively' this is relative from the previous elements position rather the the top, left corner */
+			}
+			
+
+            .tool { /* this css selector ("." followed by "tool") tells the browser that this style block applies to ONLY the elements with a matching class, e.g. class="tool" */
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				border: 1px solid #a0a0a0; /* this css property defines/sets the border of the selected element (in this case the elements with class="tool") */
+			}
+			
+
+			.tool:hover { /* this ":hover" is a special css condition that to automatically applied if the mouse is moved (or hovers) over the specified element (in this case elements with class="tool") */
+				border: 1px solid #f0f0f0; /* this css property defines/sets the border of the selected element (in this case the elements with the class tool) */
+			}
+			
+
+			#red1 { /* this style is applied to elements with a specific id, in this instance "colour1" */
+				left: 0px; /* set the element's left position, how far from the left edge of the parent container */
+				top: 0px; /* set the element's top position, how far from the top edge of the parent container */
+				background-color: #ff0000;
+				border: 2px solid #999999;
+			}
+
+			#green2 { /* apply this style to element id="green2" */
+				left: 60px;
+				top: 0px;
+				background-color: #00ff00;
+				border: 2px solid #999999;
+			}
+            
+			#blue3 { /* apply this style to element id="blue3" */
+				left: 120px;
+				top: 0px;
+				background-color: #0000ff;
+				border: 2px solid #999999;
+			}
+			
+			#magenta4 { /* apply this style to element id="magenta4" */
+				left: 180px;
+				top: 0px;
+				background-color: #ff00ff;
+				border: 2px solid #999999;
+			}
+			
+			#black5 { /* apply this style to element id="black5" */
+				left: 240px;
+				top: 0px;
+				background-color: #000000;
+				border: 2px solid #999999;			}
+			
+			#orange6 { /* apply this style to element id="orange6" */
+				left: 300px;
+				top: 0px;
+				background-color: #ff9900;
+				border: 2px solid #999999;
+			}
+			
+			#yellow7 { /* apply this style to element id="yellow7" */
+				left:360px;
+				top: 0px;
+				background-color: #ffff00;
+				border: 2px solid #999999;
+			}
+			
+			#brown8 { /* apply this style to element id="brown8" */
+				left: 420px;
+				top: 0px;
+				background-color: #D2691E;
+				border: 2px solid #999999;
+			}
+			
+			#boxDefault { /* apply this style to element id="boxDefault" */
+				left: 440px;
+				top: 0px;
+				width: 50px;
+				height: 50px;
+				background-color: #ffe6cc;
+			}
+			
+			#cubeDefualt { /* apply this style to element id="cubeDefualt" */
+				position: absolute;
+				left:465px;
+				top:25px;
+				height:5px;
+				width:5px;
+				background-color: #000000;
+			}
+			
+			#box1 { /* apply this style to element id="box1" */
+				left:500px;
+				top: 0px;
+				height:50px;
+				width:50px;
+				background-color: #ffe6cc;
+			}
+			
+			#cube1 { /* apply this style to element id="cube1" */
+				position: absolute;
+				left:520px;
+				top:21px;
+				height:10px;
+				width:10px;
+				background-color: #000000;
+			}
+			
+			#box2 { /* apply this style to element id="box2" */
+				left: 560px;
+				top: 0px;
+				width: 50px;
+				height: 50px;
+				background-color: #ffe6cc;
+			}
+			
+			#cube2 { /* apply this style to element id="cube2" */
+				position: absolute;
+				left: 575px;
+				top: 15px;
+				width: 20px;
+				height: 20px;
+				background-color: #000000;
+			}
+			
+			#box3 { /* apply this style to element id="box3" */
+				left: 620px;
+				top: 0px;
+				width: 50px;
+				height: 50px;
+				background-color: #ffe6cc;
+			}
+			
+			#cube3 { /* apply this style to element id="cube3" */
+				position: absolute;
+				left: 630px;
+				top: 10px;
+				width: 30px;
+				height: 30px;
+				background-color: #000000;
+				
+			}
+			
+		</style>
+		
+		<script>
+			var oCanvas, oCanvasContext; //declare the global variables used to hold and control the canvas element
+			var sFillColour; //create a global variable used to hold the active/selected colour
+			var sCanvasColour; //create a global variable used to hold the canvas colour
+			var iMouseX, iMouseY; //declare the global variables used to hold the mouse's coordinates
+			var iBrushWidth, iBrushHeight; //declare the global variables used to hold the selected brush sizes
+			var sColourPicker // declare the global variable used to hold the color-blend tool 
+			var sEraser // declare the global variable to hold the eraser tool
+
+
+			function fnInitialise(iCanvasWidth, iCanvasHeight) {
+				//this function is called via the HTML body tag and the onload event
+				fnDebugMessage("Running fnInitialise"); //debug message
+				oCanvas = document.getElementById("cw1Canvas"); //create a reference to the HTML canvas element
+				if (oCanvas.getContext) { //test to see if we can read the canvas' context; if true we have found the canvas
+					oCanvas.width=iCanvasWidth=800; //set the canvas width using the width argument passed to the fnInitialise function
+					oCanvas.height=iCanvasHeight=800; //set the canvas height using the width argument passed to the fnInitialise function
+					oCanvasContext = oCanvas.getContext("2d"); //set the context to 2D
+					fnDebugMessage("Canvas size, width: " + iCanvasWidth + ", height: " + iCanvasHeight); //debug message, if this message appears in 
+					
+					//set some default values`
+					sCanvasColour=getComputedStyle(oCanvas).getPropertyValue("background-color"); //this instruction automatically detects the background colour of the cavas and stores it in the global sCanvasColour variable
+					fnDebugMessage("Canvas background colour: " + sCanvasColour); //debug message, if this message appears in 
+
+					//let set a default brush size
+					iBrushWidth=5;
+					iBrushHeight=5;
+					
+					
+				} else {
+					fnDebugMessage("fnInitialise, failed to get the canvas's context"); //debug message, we were unable to get the canvas' context
+				}	
+			}
+			
+			function fnBrushDefault(){ // This is the default brush size and is automatically selected when the canvas is initialized 
+				iBrushHeight = 5 // This is the height of the brush 
+				iBrushWidth = 5 // This is the width of the brush
+				alert ("Default brush size selected")
+			
+			}
+			
+			function fnBrushSize1 (){
+				iBrushHeight = 10; // This is the height of the brush 
+				iBrushWidth = 10; // This is the width of the brush
+				alert ("Small brush size selected")
+			}
+			
+			function fnBrushSize2 (){
+				iBrushHeight = 20; // This is the height of the brush 
+				iBrushWidth = 20; // This is the width of the brush
+				alert ("Medium brush size selected")
+			}
+			
+			function fnBrushSize3 (){
+				iBrushHeight = 30; // This is the height of the brush 
+				iBrushWidth = 30; // This is the width of the brush 
+				alert ("Large brush size selected")
+			}
+			
+			function fnDebugMessage(sMessage) {
+				//this function posts the specific value (sMessage) to the console - a good way of debugging and testing
+				console.log("Debug Message: " + sMessage);
+			}
+			
+			
+			function fnPaint(iX, iY, iWidth, iHeight) {
+				//use this function to fill a rectangle at the specific location (x, y) and specified size (width, height) and specified colour (colour)
+				//by switching the value provided for sColour to the canvas background colour you will be able to use this to erase painted marks
+				fnDebugMessage("fnPaint called at x: " + iX + ", y: " + iY + ", w: " + iWidth + ", h: " + iHeight); //send a debug message with the location and size
+				oCanvasContext.fillStyle = sFillColour; //use the value stored in the sFillColour global variable as the fill colour
+				oCanvasContext.fillRect(iX, iY, iWidth, iHeight); //fillRect() method (function) draws a "filled" rectangle; default color was specified by the fillstyle
+			} 
+			
+			function fnEraserTool(){ // this function is to eraser any changes made to the canvas.
+				fnDebugMessage("Eraser"); // message made when the tool is selected .
+				alert ("Eraser Picked")
+				sFillColour = sCanvasColour; // this makes the color of the eraser equivalent to the canvas color.
+				sEraser = sFillColour; // the eraser variable is then equal to the color used to fill the canvas as sFillColour has been set to sCanvasColour.				
+			}
+			
+			
+			function fnClearCanvas() {
+				//use this function to clear the canvas
+				fnDebugMessage("fnClear Canvas"); //send a debug message with the function being called
+				alert ("Canvas Cleared")
+				sCanvasColour = sFillColour;
+				oCanvasContext.fillStyle = sFillColour;
+				oCanvasContext.fillRect(0,0, oCanvas.width, oCanvas.height); // fills canvas with the current active colour
+			}
+			
+			function fnPicker(e){ // function used to color blend tool
+				fnDebugMessage(e.value);
+				sFillColour = document.getElementById("Picker").value; // gets the value of the colur through it's Id
+			}
+			
+			function fnSetFillColour(sColour) {
+				//use this function to set the fill colour (this refers to the activated colour)
+				fnDebugMessage("fnSetFillColour: " + sColour); //send a debug message with the function being called and the value
+				sFillColour=sColour; //store the value provided as sColour
+			}
+			
+			
+			function fnColourSelected(oElement) {
+				//use this function to process the colour selection tool
+				var sColour=getComputedStyle(oElement).getPropertyValue("background-color");
+
+				//lets use JavaScript to get the colour of the select element
+				sColour=getComputedStyle(oElement).getPropertyValue("background-color"); //this instruction automatically detects the background colour of the element that was self referenced and stores it in the local sColour variable
+				
+				fnSetFillColour(sColour); //execute the fnSetFillColour and pass it the value we are holding in the sColour variable
+				
+				fnDebugMessage("Activated Colour: " + sColour);
+			
+				
+				document.getElementById("red1").style.borderColor="#999999"; // this is where the Id of the color will determine what color is used on the canvas. 
+				document.getElementById("green2").style.borderColor="#999999";
+				document.getElementById("blue3").style.borderColor="#999999";
+				document.getElementById("magenta4").style.borderColor="#999999";
+				document.getElementById("black5").style.borderColor="#999999";
+				document.getElementById("orange6").style.borderColor="#999999";
+				document.getElementById("yellow7").style.borderColor="#999999";
+				document.getElementById("brown8").style.borderColor="#999999";
+				
+				oElement.style.borderColor="#ffffff"
+				sEraserButton=getComputedStyle(oCanvas).getPropertyValue("background-color"); // This means that the button thats linked to the eraser tool will fetch the color of the background and fill the canvas with that color.
+			}
+			
+	
+	
+			function fnTrackMouse(e) {
+				//this function is called "everytime" the user's mouse is moved when over the associated element (in this case the canvas)
+				//we have also added the ability for it to accept a parameter (called e, actually we can call it anything but as event is a reserved work "e" makes some sense
+				var canvasRect = oCanvas.getBoundingClientRect(); //use this function to dynamically get the size of the canvas and its position
+				iMouseX=(e.clientX - canvasRect.left - (iBrushWidth/2)); //modify the original position of the mouse by accounting for the position on the canvas; on the x
+				iMouseY=(e.clientY - canvasRect.top - (iBrushHeight/2)); //modify the original position of the mouse by accounting for the position on the canvas; on the y
+				
+				fnDebugMessage("Tracking mouse: ALT key detected: " + e.altKey); //update the console to show if the alt key code is being pressed 
+				fnDebugMessage("Tracking mouse: SHIFT key detected: " + e.shiftKey); //update the console to show if shift key is being pressed 
+				fnDebugMessage("Tracking mouse: CNTRL key detected: " + e.ctrlKey); //update the console to show if control key is being pressed 
+
+				if (e.buttons==1) { //this checks to see if the user is pressing the left mouse button (1 = the left mouse button)
+					//the user has pressed the left button - so lets start painting
+					fnPaint(iMouseX, iMouseY, iBrushWidth, iBrushHeight); //call the fnPaint function and pass it the coordinates and size to paint
+				}
+
+				fnDebugMessage("Tracking mouse: x: " + iMouseX + ", y: "+iMouseY); //update the console to show the mouse position, dont forget, you may need to include an offset to centre the paint effect
+			}
+	
+		</script>
+
+	</head>
+	
+	<!-- 
+		this "onload" event fires when the HTML <body> has loaded. In essence, we are telling the browser that once the page 
+		has completely loaded all the content to execute a script. 
+		in this case the function being called is "fnInitialise" and we are passing it two parameters: 
+			the first (work out how this sets the width) = 100 
+			the second (work out how this sets the height) = 100 
+	-->
+	<body onload="fnInitialise(800,800);">
+
+		<!-- 
+			this div block (HTML page divider) is used to hold the entire interactive painting HTML elements 
+			the benefit of putting multiple elements in a single container is that if you set the location of the 
+			container each of the elements held by the container will move relative to it; move one, move all 
+		-->
+        <div id="cw1MainContainer">
+
+            <!-- this div block is only used to hold the HTML canvas element -->
+            <div id="cw1CanvasContainer">
+                <canvas id="cw1Canvas" onmousemove="fnTrackMouse(event);"></canvas> 
+                <!-- 
+                	by specifing the onmouseover event the canvas will call the "fnTrackMouse" function EVERY time the 
+                	mouse moves 1 pixel over the canvas.
+                	by passing the JavaScript "event" we are effectively also passing details about the event, 
+                	e.g. where the mouse was, what buttons were pressed etc. 
+                -->
+            </div>
+
+            <!-- this div block is only used to group and hold the HTML colour selection tool elements -->
+            <div id="cw1ColoursContainer">
+				<div id="red1" class="tool" onclick="fnColourSelected(this);"></div>
+				<div id="green2" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="blue3" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="magenta4" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="black5" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="orange6" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="yellow7" onclick= "fnColourSelected (this);" class="tool"></div>
+				<div id="brown8" onclick= "fnColourSelected (this);" class="tool"></div>
+            </div>
+         	
+            <!-- this div block is only used to group and hold the HTML control tool elements -->
+            <div id="cw1ControlsContainer">
+				<input id="Picker" type="color" onchange="fnPicker(this);">
+				<button id="Clear" onclick="fnClearCanvas();">Reset</button>
+				<button id="Eraser" onclick="fnEraserTool();">Eraser</button>
+				
+				<div id="boxDefault"class="tool" onclick="fnBrushDefault();"></div>
+				<div id="cubeDefualt" class="tool" onclick="fnBrushDefault();"></div>
+				
+				<div id="box1" class="tool" onclick="fnBrushSize1();"></div>
+				<div id="cube1" class="tool" onclick="fnBrushSize1();" ></div>
+				
+				<div id="box2"class="tool" onclick="fnBrushSize2();"></div>
+				<div id="cube2" class="tool" onclick="fnBrushSize2();" ></div>
+				
+				<div id="box3"class="tool" onclick="fnBrushSize3();"></div>
+				<div id="cube3" class="tool" onclick="fnBrushSize3();"></div>
+			
+            </div>
+            
+        </div>
+		
+	</body>
+	
+	<!-- 
+		Test Log
+		*****************************************************************************************
+		Test Date, Use & Operatins No (1-6), Description, What did you test, Results, Reflections			
+		*****************************************************************************************
+		1- 25/10/18 - Changing size of the canvas from 100,100 to 800,800, worked successfully when opened on Google Chrome.
+		2- 25/10/18 - started to add the 8 preset colors and called it to the correct ID, Failed in working within Chrome as function didn't do anything.
+		3- 27/10/18 - Used "Document.getElementById" to fetch the color from the Id within HTML, SUCCESS! the colors now worked when painting on canvas.
+		4- 1/10/18 - Created a reset tool to clear the canvas of any changes. SUCCESS! the canvas cleared and changed the color to the previous color selected as the canvas background.
+		5- 2/10/18 - Added different brush sizes using the function "fnBrushSize()" to determine the correct size corresponding to the "<div>" also, i added visual indicators of the different size brushes to select at the bottom right hand corner of the canvas to select the different sizes. SUCCESS! the brush sizes worked when using them in canvas 
+		6- 3/11/18 -  The eraser tool was the next tool to create. I began to used the function for filling the canvas "sFillColour" then equaled it to the color of the canvas creating "sFillColour = sCanvasColour;". Failed as i didn't refer back to the function created "fnEraserTool"
+		7- 3/11/18 - I fixed the issue by creating the code used for filling the canvas to the eraser "sEraser = sFillColour;"
+		8- 5/11/18 - The finally tool to add was the blend tool this was done by creating the function "fnPicker".
+		9- 7/11/18 - I then used the "Document.getElementById().value" so that whatever the color is the value will be the indicator to what the color is. SUCCESS! Function worked when clicking on the color-picker tab.
+	-->
+
+</html>
